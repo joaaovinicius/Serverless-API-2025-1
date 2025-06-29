@@ -11,7 +11,7 @@ on:
         options:
         - plan
         - apply
-        - destroy
+
   push:
     branches: [ main ]
     paths: 
