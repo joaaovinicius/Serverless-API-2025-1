@@ -361,32 +361,3 @@ def resposta_erro(status_code, message):
             'message': message
         }, ensure_ascii=False)
     }
-
-"""
-EXEMPLOS DE USO DA API:
-
-1. Adicionar usuário:
-POST /users
-Body: {"nome": "João", "email": "joao@email.com", "telefone": "123456789"}
-
-2. Buscar usuário:
-GET /users/{userId}
-
-3. Alterar usuário:
-PUT /users/{userId}
-Body: {"nome": "João Silva", "email": "joao.silva@email.com"}
-
-4. Remover usuário:
-DELETE /users/{userId}
-
-5. Upload arquivo:
-POST /users/{userId}/upload
-Body: {
-    "arquivo_base64": "base64_encoded_file",
-    "nome_arquivo": "documento.pdf",
-    "content_type": "application/pdf"
-}
-
-6. Download arquivos:
-GET /users/{userId}/files
-"""
