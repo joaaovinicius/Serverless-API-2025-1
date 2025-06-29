@@ -12,6 +12,10 @@ on:
         - plan
         - apply
         - destroy
+  push:
+    branches: [ main ]
+    paths: 
+      - 'src/**'
 
 jobs:
   terraform-test:
@@ -43,12 +47,16 @@ jobs:
       run: terraform validate
       
     - name: Terraform Plan
-      if: github.event.inputs.action == 'plan'
       working-directory: src/terraform
       run: terraform plan -out=tfplan
       
-    - name: Terraform Apply
-      if: github.event.inputs.action == 'apply'
+    - name: Terraform Apply (Push)
+      if: github.event_name == 'push'
+      working-directory: src/terraform
+      run: terraform apply -auto-approve
+      
+    - name: Terraform Apply (Manual)
+      if: github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'apply'
       working-directory: src/terraform
       run: terraform apply -auto-approve
       
