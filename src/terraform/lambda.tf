@@ -8,7 +8,7 @@ data "archive_file" "lambda_zip" {
 resource "aws_lambda_function" "main_lambda" {
   filename         = data.archive_file.lambda_zip.output_path
   function_name    = "${var.project_name}-lambda"
-  role             = data.aws_iam_role.lambda_role.arn
+  role             = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/LabRole"
   handler          = "lambda_function.lambda_handler"
   runtime          = "python3.9"
   timeout          = 30
@@ -21,3 +21,6 @@ resource "aws_lambda_function" "main_lambda" {
     }
   }
 }
+
+# Obter account ID dinamicamente
+data "aws_caller_identity" "current" {}
