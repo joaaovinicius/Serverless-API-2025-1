@@ -35,23 +35,29 @@ jobs:
         aws-region: us-east-1
         
     - name: Terraform Init
+      working-directory: src/terraform
       run: terraform init
       
     - name: Terraform Validate
+      working-directory: src/terraform
       run: terraform validate
       
     - name: Terraform Plan
       if: github.event.inputs.action == 'plan'
+      working-directory: src/terraform
       run: terraform plan -out=tfplan
       
     - name: Terraform Apply
       if: github.event.inputs.action == 'apply'
+      working-directory: src/terraform
       run: terraform apply -auto-approve
       
     - name: Terraform Destroy
       if: github.event.inputs.action == 'destroy'
+      working-directory: src/terraform
       run: terraform destroy -auto-approve
       
     - name: Show State
       if: github.event.inputs.action != 'destroy'
+      working-directory: src/terraform
       run: terraform show
