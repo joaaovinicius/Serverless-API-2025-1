@@ -1,17 +1,6 @@
 name: Terraform AWS Academy Deploy Test
 
 on:
-  workflow_dispatch:
-    inputs:
-      action:
-        description: 'Ação Terraform'
-        required: true
-        default: 'plan'
-        type: choice
-        options:
-        - plan
-        - apply
-
   push:
     branches: [ main ]
     paths: 
