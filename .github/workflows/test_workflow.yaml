@@ -54,18 +54,4 @@ jobs:
       if: github.event_name == 'push'
       working-directory: src/terraform
       run: terraform apply -auto-approve
-      
-    - name: Terraform Apply (Manual)
-      if: github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'apply'
-      working-directory: src/terraform
-      run: terraform apply -auto-approve
-      
-    - name: Terraform Destroy
-      if: github.event.inputs.action == 'destroy'
-      working-directory: src/terraform
-      run: terraform destroy -auto-approve
-      
-    - name: Show State
-      if: github.event.inputs.action != 'destroy'
-      working-directory: src/terraform
-      run: terraform show
+  
