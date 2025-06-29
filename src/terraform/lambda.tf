@@ -22,10 +22,5 @@ resource "aws_lambda_function" "main_lambda" {
   }
 }
 
-resource "aws_cloudwatch_log_group" "lambda_log_group" {
-  name              = "/aws/lambda/${var.project_name}-lambda"
-  retention_in_days = 14
-}
-
 # Obter account ID dinamicamente
 data "aws_caller_identity" "current" {}

@@ -26,9 +26,9 @@ output "aws_region" {
 output "project_resources" {
   description = "Summary of created resources"
   value = {
-    api_url      = aws_apigatewayv2_stage.main_stage.invoke_url
-    lambda_name  = aws_lambda_function.main_lambda.function_name
-    table_name   = aws_dynamodb_table.main_table.name
-    bucket_name  = aws_s3_bucket.main_bucket.id
+    api_url     = aws_apigatewayv2_stage.main_stage.invoke_url
+    lambda_name = aws_lambda_function.main_lambda.function_name
+    table_name  = aws_dynamodb_table.main_table.name
+    bucket_name = aws_s3_bucket.main_bucket.id
   }
 }
