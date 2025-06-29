@@ -75,9 +75,3 @@ resource "random_string" "suffix" {
   special = false
   upper   = false
 }
-
-resource "random_string" "suffix" {
-  length  = 8
-  special = false
-  upper   = false
-}
