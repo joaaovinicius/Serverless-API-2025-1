@@ -1,5 +1,5 @@
 resource "aws_dynamodb_table" "main_table" {
-  name         = "${var.project_name}-table-${random_string.suffix.result}"
+  name         = "${var.project_name}-table"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "userId"
 
