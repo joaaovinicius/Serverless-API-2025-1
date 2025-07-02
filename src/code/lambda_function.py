@@ -47,7 +47,7 @@ def extract_user_id(path):
             return part
     return None
 
-
+##Teste
 def create_user(event):
     """Cria novo usuário"""
     body = json.loads(event.get("body", "{}"))
