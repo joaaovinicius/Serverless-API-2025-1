@@ -5,7 +5,7 @@ on:
     branches: [ main ]
     paths: 
       - 'src/**'
-##teste para ver o que acontece kkkkkddssasdddd
+##teste para ver o que acontecessasdddd
 
 jobs:
   terraform-test:
